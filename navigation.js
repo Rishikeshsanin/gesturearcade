@@ -1,0 +1,6 @@
+export class GestureNavigation{
+ constructor({dwell=650,cooldown=850}={}){this.dwell=dwell;this.cooldown=cooldown;this.reset()}
+ reset(){this.target=null;this.entered=0;this.previousPinch=false;this.lastActivation=-Infinity;this.handId=null;this.scrollEntered=0;this.scrollDirection=0}
+ update({target,hand,now,edge=0}){if(!hand||hand.age<4||now-hand.t>100||!Number.isFinite(hand.speed)){this.target=null;this.handId=null;this.previousPinch=false;this.scrollDirection=0;return {activate:false,progress:0,scroll:0}}if(this.handId!==hand.id){this.target=null;this.entered=now;this.previousPinch=!!hand.pinched;this.handId=hand.id;this.scrollDirection=0}if(target!==this.target){this.target=target;this.entered=now;this.previousPinch=!!hand.pinched}const progress=target?Math.max(0,Math.min(1,(now-this.entered)/this.dwell)):0;const activation=!!target&&progress===1&&hand.pinched&&!this.previousPinch&&now-this.lastActivation>=this.cooldown;if(activation){this.lastActivation=now;this.entered=now}this.previousPinch=!!hand.pinched;
+ const dir=hand.gesture==='open palm'&&!target?edge:0;if(dir!==this.scrollDirection){this.scrollDirection=dir;this.scrollEntered=now}return {activate:activation,progress,scroll:dir&&now-this.scrollEntered>=500?dir:0}}
+}
