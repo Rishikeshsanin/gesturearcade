@@ -1,5 +1,7 @@
 # GestureArcade
 
-Camera-controlled arcade. Development in progress; no release certification yet.
+Tracking foundation development preview. Gesture Lab and AirSlice only; not release-ready.
 
-The existing AirSlice experiment remains an independent baseline. See DEVELOPMENT_STATUS.md on the development branch for progress.
+Run `npm test` for pure geometry tests; serve the repository root using a static HTTPS host (localhost is accepted for camera access). Camera permission is explicit. No account required.
+
+Original baseline: https://gesturearcade-airslice-lab.vercel.app (preserved).

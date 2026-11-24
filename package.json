@@ -1,0 +1,10 @@
+{
+  "name": "gesturearcade",
+  "version": "0.1.0-dev.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tracking.test.js",
+    "check": "node --check app.js && node --check tracking.js"
+  }
+}

@@ -1,0 +1,3 @@
+# Tracking
+
+Hand Landmarker candidate; GPU with CPU fallback. Frame callbacks process new video frames; current synchronous inference on main thread can block rendering and is not the final solution. Raw observation segments are independent of visual smoothing/prediction. Continuity uses palm distance/time, relative fingertip shape, palm size and ambiguous assignment rejection. After an empty frame or >120ms gap, do not bridge tracks. No detection confidence exposed; handedness score is explicitly labeled. Predicted position capped to 24ms and 4.5% normalized distance; never used for collision. Thresholds provisional, physical calibration pending.
