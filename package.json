@@ -1,6 +1,6 @@
 {
   "name": "gesturearcade",
-  "version": "0.1.0-dev.11",
+  "version": "0.1.0-dev.12",
   "private": true,
   "type": "module",
   "scripts": {
