@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {LabRun} from './lab.js';const h=(id,x,y,speed=0,pinched=false)=>({id,tip:{x,y},speed,pinched});
+test('fast prompted path and expiry',()=>{const l=new LabRun();l.start('fast',0);l.update([h(1,.2,.5)],0);l.update([h(1,.8,.5,4)],200);assert.equal(l.summary().completedPaths,1);l.tick(20000);assert.equal(l.active,false)});
+test('discontinuity cannot complete target pair',()=>{const l=new LabRun();l.start('fast',0);l.update([h(1,.2,.5)],0);l.update([],100);l.update([h(2,.8,.5,4)],200);assert.equal(l.summary().completedPaths,0);assert.equal(l.summary().recoveries,1)});
+test('precision requires dwell',()=>{const l=new LabRun();l.start('precision',0);l.update([h(1,.5,.5)],0);l.update([h(1,.5,.5)],300);assert.equal(l.summary().targets,0);l.update([h(1,.5,.5)],350);assert.equal(l.summary().targets,1)});
+test('pinch cycle uses same tracked hand',()=>{const l=new LabRun();l.start('pinch',0);l.update([h(1,.5,.5,0,true)],0);l.update([h(1,.5,.5)],100);assert.equal(l.summary().pinchCycles,1);l.update([h(1,.5,.5,0,true)],200);l.update([h(2,.5,.5)],300);assert.equal(l.summary().pinchCycles,1)});
