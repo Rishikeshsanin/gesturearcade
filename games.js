@@ -5,7 +5,7 @@ const text=(c,s,x,y,size=22,color='#fff')=>{c.fillStyle=color;c.font='700 '+size
 function rand(a,b){return a+Math.random()*(b-a)}
 export class ArcadeGame{
  constructor(id,{local=false,difficulty='normal',sound=()=>{}}={}){if(!GAMES.some(g=>g.id===id))throw Error('Unknown game');this.id=id;this.local=local;this.difficulty=difficulty;this.sound=sound;this.reset()}
- reset(){this.time=0;this.score=0;this.other=0;this.lives=5;this.done=false;this.hits=0;this.shots=0;this.combo=0;this.pinchIds=new Set();this.target=null;this.objects=[];this.spawn=0;this.left=H/2;this.right=H/2;this.paddle={x:200,y:H/2};this.rival={x:760,y:H/2};this.ball={x:W/2,y:H/2,vx:310,vy:120};this.lastPointer=false;this.reaction=[];this.serve=0}
+ reset(){this.saved=false;this.time=0;this.score=0;this.other=0;this.lives=5;this.done=false;this.hits=0;this.shots=0;this.combo=0;this.pinchIds=new Set();this.target=null;this.objects=[];this.spawn=0;this.left=H/2;this.right=H/2;this.paddle={x:200,y:H/2};this.rival={x:760,y:H/2};this.ball={x:W/2,y:H/2,vx:310,vy:120};this.lastPointer=false;this.reaction=[];this.serve=0}
  get speed(){return this.difficulty==='hard'?1.3:this.difficulty==='easy'?.8:1}
  point(){this.score++;this.sound();if(this.score>=7)this.done=true}
  opponent(){this.other++;if(this.other>=7)this.done=true}
