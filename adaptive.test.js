@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {AdaptiveQuality,AutoCalibration} from './adaptive.js';
+test('quality drops after sustained slow inference and rises slowly',()=>{const q=new AdaptiveQuality();for(let i=0;i<30;i++)q.observe(65);assert.equal(q.profile.width,384);for(let i=0;i<230;i++)q.observe(5);assert.equal(q.profile.width,960)});
+test('manual quality ignores hysteresis',()=>{const q=new AdaptiveQuality('detail');for(let i=0;i<100;i++)q.observe(100);assert.equal(q.profile.width,960)});
+test('calibration isolates track identity and stationary data',()=>{const c=new AutoCalibration();for(let i=0;i<30;i++)c.observe({id:1,tip:{x:.5+i*.0001,y:.5},scale:.12,speed:.01});assert.ok(c.summary().samples>=20);assert.ok(c.jitter<.001);c.observe({id:2,tip:{x:.1,y:.1},scale:.1,speed:0});assert.equal(c.jitter,null)});
