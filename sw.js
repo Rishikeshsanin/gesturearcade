@@ -1,0 +1,4 @@
+const CACHE='gesturearcade-shell-dev4';const SHELL=['/','/style.css','/app.js','/tracking.js','/timeline.js','/lab.js','/vision-client.js','/vision-model.js','/vision-worker.js','/adaptive.js','/recording.js','/games.js'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL))));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('gesturearcade-shell-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin||(!SHELL.includes(u.pathname)&&e.request.mode!=='navigate'))return;e.respondWith((async()=>{const c=await caches.open(CACHE);if(e.request.mode==='navigate'){return await c.match('/')||fetch(e.request)}return await c.match(u.pathname)||fetch(e.request)})())});
