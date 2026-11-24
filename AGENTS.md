@@ -1,0 +1,3 @@
+# Agent instructions
+
+Only work in Rishikeshsanin/gesturearcade and the isolated gesturearcade-dev Vercel project. Preserve the original AirSlice prototype, unrelated repositories, databases and deployments. No paid infrastructure without explicit permission. Read DEVELOPMENT_STATUS.md and KNOWN_LIMITATIONS.md first; verify exact branch head, CI and deployment. Continue implementing and testing independent tasks while physical camera acceptance is pending; never claim synthetic camera results are real-hand acceptance. Use atomic Git tree commits when possible and no destructive ref updates. Keep draft PR until release gates. Maintain exact executable SHA, test results and next action in checkpoint.

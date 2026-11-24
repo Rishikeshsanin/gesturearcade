@@ -1,0 +1,5 @@
+# Deployment
+
+Original independent AirSlice prototype remains untouched: https://gesturearcade-airslice-lab.vercel.app.
+
+Only development project prj_fD9EGTWt6mWlxBgFDQfQ4IPt4j6Z (gesturearcade-dev) in team team_nXAdZkChmqZjZ8CzN2AGucbc is authorized. Prior dev.2 stable URL https://gesturearcade-dev.vercel.app; previous dev.3 preview https://gesturearcade-ntvwixi3m-rishikeshsanin-1193s-projects.vercel.app. New dev.12 preview https://gesturearcade-9uup1r3od-rishikeshsanin-1193s-projects.vercel.app, deployment dpl_2aCvhBpqSwYHYKwgqiEUNmwaVz6F, READY, exact Git source SHA baef0d820ace802574b52503549bac149166b397. HTTP 200 for home and app.js, vision-worker.js, games.js, flagships.js, sports.js, experimental.js, recording.js and sw.js. Verified CSP, camera-only permission policy, HSTS, no-referrer, nosniff and frame denial. Preview may require Vercel authentication. No production promotion, main merge or prior alias reassignment. Git-source exact SHA deployment performed manually; automated CI-to-Vercel release gate not configured. No paid services, Supabase or unrelated projects modified.

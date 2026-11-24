@@ -1,0 +1,3 @@
+# Remaining release work
+
+All 20 development game modes are implemented. Focus now on actual product quality, not placeholder count: verify recording/offline and deployment, controlled tracking performance comparison, representative real-hand replay and physical webcam acceptance; refine each game mechanics and visual/audio assets, tutorials, progression and local duels; strengthen accessibility, browser compatibility and long-session performance. Evaluate online multiplayer only after local inputs are stable. No production certification until physical acceptance and all release-blocking checks pass.

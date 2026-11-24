@@ -1,0 +1,5 @@
+# Privacy
+
+Camera permission is explicit; no account or microphone request. Camera processing is on device (worker or main-thread). Frames are not uploaded or stored. Model/WASM files are fetched from pinned external hosts. Diagnostics export numeric statistics, labels and no camera pixels or device IDs. Explicit stop, mode change, backgrounding, pagehide or device disconnection normally stops camera. Opt-in hands-free navigation can keep an already authorized camera active during a deliberate game switch; active camera indicator and stop remain available.
+
+Optional recorder captures only the game canvas (including drawn virtual landmarks) and optional synthesized game sounds from Web Audio. It never draws the DOM video feed into the recording, never requests microphone, never uploads, and offers a local download. Maximum 60 seconds; chunk-size stop threshold 24 MiB (final chunk can exceed threshold). No recording by default. Empty/failed clips must not be presented as valid. Local history and favorites are stored in browser storage. Same-origin shell cached via service worker; model assets not yet offline cached. Production network/security audit pending.

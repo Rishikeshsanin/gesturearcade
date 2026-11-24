@@ -1,0 +1,10 @@
+{
+  "name": "gesturearcade",
+  "version": "0.1.0-dev.12",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tracking.test.js timeline.test.js lab.test.js adaptive.test.js games.test.js flagships.test.js sports.test.js experimental.test.js profile.test.js navigation.test.js effects.test.js",
+    "check": "node --check app.js && node --check tracking.js && node --check timeline.js && node --check browser-smoke.mjs && node --check lab.js && node --check vision-client.js && node --check vision-worker.js && node --check vision-model.js && node --check adaptive.js && node --check games.js && node --check recording.js && node --check sw.js && node --check flagships.js && node --check sports.js && node --check experimental.js && node --check profile.js && node --check audio.js && node --check navigation.js && node --check effects.js"
+  }
+}

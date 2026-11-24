@@ -1,0 +1,18 @@
+# Development checkpoint — 0.1.0-dev.12
+
+Branch feat/tracking-foundation, draft PR #1 https://github.com/Rishikeshsanin/gesturearcade/pull/1. Main remains unmerged. Exact verified executable commit baef0d820ace802574b52503549bac149166b397; subsequent commits are documentation-only.
+
+All 20 modes have development mechanics. Implemented worker-first MediaPipe, fallback, adaptive inference resolution, stationary calibration, velocity rescue, nine Lab scenarios, local profile, game filtering/favorites/recent, achievements, local Pong/Hockey duels, generated audio, bounded effects, gesture navigation, AirSlice three modes, offline same-origin shell and optional local gameplay recorder. No premium/final completion claim.
+
+## Verified evidence
+- dev.3 run 45480074972: 15 core tests and actual main-thread model synthetic-camera smoke passed.
+- dev.11 run 45484479790: 44 core tests, actual worker CPU inference without fallback (short sample 29.4ms median, 62 render fps, 19.1 callback fps, 9.5 inference fps); Chromium failed at empty recording download.
+- dev.12 https://github.com/Rishikeshsanin/gesturearcade/actions/runs/45484932300: core job 138767749900 44/44 pass, Chromium job 138767750894 success. Real main-thread and worker model initialization and synthetic-camera inference, UI diagnostics, camera cleanup, responsive layout, all twenty game selection/restart smoke, profile filtering, actual clip decode and byte-equal download and offline reload passed. Portrait 540x960, no audio, 159183 bytes; landscape 960x540, game audio enabled, 149104 bytes. Worker sample 33.1ms median, 62.5 render fps, 19.5 callback fps, 7.8 inference fps; two in-flight drops, no fallback. Not physical hand accuracy or sustained benchmark.
+- New isolated preview https://gesturearcade-9uup1r3od-rishikeshsanin-1193s-projects.vercel.app, deployment dpl_2aCvhBpqSwYHYKwgqiEUNmwaVz6F, project prj_fD9EGTWt6mWlxBgFDQfQ4IPt4j6Z. READY, exact Git SHA verified; HTTP 200 on home, app, worker, arcade, flagship, sports, experimental, recording and service-worker modules. CSP, camera-only permissions, HSTS, nosniff, frame denial and no-referrer present. Prior aliases and original AirSlice untouched. No production promotion.
+- Local container GitHub DNS and localhost Chromium policy prevented local browser testing; connected GitHub CI and Vercel verification used.
+
+## Exact continuation
+1. Start from this branch and verify the executable SHA and run above. Add controlled sustained worker vs main-thread timing, frame scheduling and consented ground-truth hand replay fixtures. Optimize throughput without weakening long-gap or false-swipe rejection. 95% valid-swipe physical/replay target not established.
+2. Continue per-game acceptance and polish: first AirSlice and initial arcade modes, then flagship, sports, experimental. Expand game-specific progression, tutorials, richer visual/audio identity, accessibility, balancing and real scoring tests; current browser test is selection/restart smoke, not full game acceptance.
+3. Improve local player identity and overlap recovery, then tournament and online multiplayer only with isolated authorized infrastructure. Extend offline model caching with integrity/licensing review; test recorder long sessions and cross-browser codec behavior.
+4. Add long-session memory, browser matrix, dependency integrity and accessibility checks; retain physical-camera testing as mandatory final gate but do not stop unrelated development. No paid resources or other-app modifications. Deploy only exact verified commits to existing dev project; do not promote until acceptance.
