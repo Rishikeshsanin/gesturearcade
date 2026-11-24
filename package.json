@@ -1,10 +1,10 @@
 {
   "name": "gesturearcade",
-  "version": "0.1.0-dev.2",
+  "version": "0.1.0-dev.3",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tracking.test.js timeline.test.js",
-    "check": "node --check app.js && node --check tracking.js && node --check timeline.js && node --check browser-smoke.mjs"
+    "test": "node --test tracking.test.js timeline.test.js lab.test.js",
+    "check": "node --check app.js && node --check tracking.js && node --check timeline.js && node --check browser-smoke.mjs && node --check lab.js"
   }
 }
